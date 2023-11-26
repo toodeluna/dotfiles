@@ -6,10 +6,10 @@ fi
 
 case $1 in
 	"-full")
-		scrot -s $FILENAME_FORMAT
+		scrot -M 0 $FILENAME_FORMAT
 		;;
 	"-rect")
-		scrot -s $FILENAME_FORMAT
+		scrot -m $FILENAME_FORMAT
 		;;
 	*)
 		echo "Unknown argument: $1"
