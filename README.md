@@ -23,6 +23,13 @@ The software used in this setup:
 - File Browser:
 	- Terminal: [lf](https://github.com/gokcehan/lf)
 	- GUI: [Thunar](https://docs.xfce.org/xfce/thunar/start)
+- GTK Theme:
+	- Colors: [Catppuccin](https://github.com/catppuccin/gtk)
+	- Icons: [Papirus Dark](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
+	- Cursor: [Bibata Modern Ice](https://github.com/ful1e5/Bibata_Cursor)
+- Fonts:
+	- Monospace: [JetBrains Mono Nerd Font](https://www.nerdfonts.com/)
+	- UI: [Work Sans](https://fonts.google.com/specimen/Work+Sans)
 
 Some other fun tools that are completely useless but I still like to have are:
 
