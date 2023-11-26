@@ -36,3 +36,7 @@ Some other fun tools that are completely useless but I still like to have are:
 - [sl](https://github.com/mtoyoda/sl)
 - [cowsay](https://github.com/piuccio/cowsay)
 - [blahaj](https://blahaj.queer.software/)
+
+## How To Set Up
+
+Run the [install](./install.sh) script and hope that it works lol. Make sure that all the software listed above (including GTK themes) are installed.
