@@ -1,0 +1,17 @@
+Config
+  { dpi = 144,
+    position = BottomH 44,
+
+    font = "JetBrains Mono NF 12",
+    additionalFonts = ["JetBrains Mono NF 13"],
+
+    bgColor = "#181926",
+    fgColor = "#cad3f5",
+
+    template = "  %UnsafeXMonadLog% } %date% {  <action=`playerctl play-pause`><fc=#181926,#a6da95:0>    %spotify%  </fc></action>  ",
+    commands =
+      [ Run UnsafeXMonadLog,
+        Run Date "%d/%m/%Y %H:%M" "date" 10,
+        Run Com "sh" ["-c", "~/.luna/scripts/spotify-status.sh"] "spotify" 10
+      ]
+  }
