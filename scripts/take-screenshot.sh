@@ -9,7 +9,7 @@ case $1 in
 		scrot -M 0 $FILENAME_FORMAT
 		;;
 	"-rect")
-		scrot -m $FILENAME_FORMAT
+		scrot -s $FILENAME_FORMAT
 		;;
 	*)
 		echo "Unknown argument: $1"
