@@ -20,6 +20,7 @@ require "packer".startup(function(use)
 	use "ahmedkhalf/project.nvim"
 	use "simrat39/symbols-outline.nvim"
 	use "windwp/nvim-autopairs"
+	use "windwp/nvim-ts-autotag"
 	use { "startup-nvim/startup.nvim", requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } }
 	use { "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } }
 	use { "catppuccin/nvim", as = "catppuccin" }
@@ -59,6 +60,7 @@ vim.keymap.set("n", "<C-l>", "<C-W>l")
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 --------------------------
 -- == SET UP PLUGINS == --
@@ -199,6 +201,7 @@ require("lualine").setup {
 
 -- Tabs
 require("barbar").setup {
+	exclude_name = { "/usr/bin/fish" },
 	icons = {
 		preset = "slanted",
 	},
@@ -215,6 +218,9 @@ require("nvim-treesitter.configs").setup {
 	sync_install = false,
 	auto_install = false,
 	highlight = {
+		enable = true,
+	},
+	autotag = {
 		enable = true,
 	},
 }
@@ -273,6 +279,19 @@ cmp.setup {
 -- Go
 lspconfig.gopls.setup {}
 
+-- Typescript
+lspconfig.tsserver.setup {
+	settings = {
+		typescript = {
+			format = {
+				indentSize = 2,
+				convertTabsToSpaces = true,
+				semicolons = "insert",
+			},
+		},
+	},
+}
+
 -- Lua
 lspconfig.lua_ls.setup {
 	capabilities = capabilities,
@@ -284,6 +303,15 @@ lspconfig.lua_ls.setup {
 		},
 	},
 }
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "haskell",
+	callback = function()
+		vim.opt_local.tabstop = 2
+		vim.opt_local.shiftwidth = 2
+		vim.opt_local.expandtab = true
+	end
+})
 
 -- Haskell
 lspconfig.hls.setup {
