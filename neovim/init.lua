@@ -280,14 +280,19 @@ cmp.setup {
 lspconfig.gopls.setup {}
 
 -- Typescript
+jsts_format_settings = {
+	indentSize = 2,
+	convertTabsToSpaces = true,
+	semicolons = "insert",
+}
+
 lspconfig.tsserver.setup {
 	settings = {
 		typescript = {
-			format = {
-				indentSize = 2,
-				convertTabsToSpaces = true,
-				semicolons = "insert",
-			},
+			format = jsts_format_settings,
+		},
+		javascript = {
+			format = jsts_format_settings,
 		},
 	},
 }
