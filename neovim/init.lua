@@ -304,6 +304,12 @@ lspconfig.lua_ls.setup {
 	},
 }
 
+-- Haskell
+lspconfig.hls.setup {
+	capabilities = capabilities,
+	filetypes = { "haskell", "lhaskell", "cabal" },
+}
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "haskell",
 	callback = function()
@@ -313,8 +319,5 @@ vim.api.nvim_create_autocmd("FileType", {
 	end
 })
 
--- Haskell
-lspconfig.hls.setup {
-	capabilities = capabilities,
-	filetypes = { "haskell", "lhaskell", "cabal" },
-}
+-- C/C++
+lspconfig.clangd.setup {}
