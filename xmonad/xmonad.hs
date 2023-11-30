@@ -5,7 +5,7 @@ import XMonad.Actions.WindowGo (runOrRaise)
 import XMonad.Actions.Workscreen (shiftToWorkscreen)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops (ewmh, ewmhFullscreen)
-import XMonad.Hooks.ManageDocks (avoidStruts, docks)
+import XMonad.Hooks.ManageDocks (ToggleStruts (ToggleStruts), avoidStruts, docks)
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.StatusBar (StatusBarConfig, statusBarProp, withSB)
 import XMonad.Hooks.StatusBar.PP (xmobarColor, xmobarFont)
@@ -44,7 +44,8 @@ myConfig =
                         ("M-S-b", spawn "firefox"),
                         ("M-r", spawn "killall xmobar; xmonad --recompile; xmonad --restart"),
                         ("M-s", unGrab *> spawn "~/.luna/scripts/take-screenshot.sh -full"),
-                        ("M-S-s", unGrab *> spawn "~/.luna/scripts/take-screenshot.sh -rect")
+                        ("M-S-s", unGrab *> spawn "~/.luna/scripts/take-screenshot.sh -rect"),
+                        ("M-x", sendMessage ToggleStruts)
                       ]
   where
     myTerminal = "alacritty"
