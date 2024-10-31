@@ -16,12 +16,20 @@
       nixpkgs,
       home-manager,
     }:
+    let
+      colorscheme = import ./config/colorscheme.nix;
+    in
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
 
       nixosConfigurations.luna-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+
+        specialArgs = {
+          inherit colorscheme;
+        };
+
         modules = [
           home-manager.nixosModules.home-manager
           ./hosts/luna-desktop/configuration.nix
