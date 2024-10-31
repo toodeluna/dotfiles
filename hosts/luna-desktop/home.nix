@@ -21,8 +21,23 @@
 
   programs.home-manager.enable = true;
   programs.neovim.enable = true;
-  programs.git.enable = true;
   programs.firefox.enable = true;
   programs.alacritty.enable = true;
   programs.fish.enable = true;
+
+  programs.git = {
+    enable = true;
+    userName = "Luna Heyman";
+    userEmail = "luna.heyman@proton.me";
+
+    aliases = {
+      lga = "log --graph --oneline --all --decorate";
+      put = "push --set-upstream";
+      rollback = "reset --hard HEAD";
+    };
+
+    extraConfig = {
+      init.defaultBranch = "main";
+    };
+  };
 }
