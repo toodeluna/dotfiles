@@ -25,6 +25,12 @@
     firewall.enable = true;
   };
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.luna = import ./home.nix;
+  };
+
   services.displayManager.ly = {
     enable = true;
 
