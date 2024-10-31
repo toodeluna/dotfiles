@@ -20,8 +20,14 @@
   ];
 
   programs.home-manager.enable = true;
-  programs.neovim.enable = true;
   programs.firefox.enable = true;
+
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+  };
 
   programs.fish = {
     enable = true;
@@ -29,7 +35,6 @@
     shellAliases = {
       q = "exit";
       cls = "clear";
-      vim = "nvim";
       collect-garbage = "sudo nix-collect-garbage --delete-old";
       rebuild = "sudo nixos-rebuild switch --flake ~/GitHub/toodeluna/dotfiles";
     };
