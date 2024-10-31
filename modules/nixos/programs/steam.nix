@@ -23,5 +23,9 @@
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
     };
+
+    environment.systemPackages = with pkgs; [
+      r2modman
+    ];
   };
 }
