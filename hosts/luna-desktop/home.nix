@@ -6,8 +6,6 @@
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = 1;
-    EDITOR = "nvim";
-    BROWSER = "firefox";
   };
 
   home.packages = with pkgs; [
@@ -27,6 +25,7 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+    defaultEditor = true;
   };
 
   programs.fish = {
