@@ -86,25 +86,6 @@
     shell = pkgs.fish;
   };
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = 1;
-    EDITOR = "nvim";
-    BROWSER = "firefox";
-  };
-
-  environment.systemPackages = with pkgs; [
-    neovim
-    git
-    firefox
-    alacritty
-    rofi-wayland
-    spotify
-    discord
-    hyprpaper
-    ncpamixer
-    stremio
-  ];
-
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "Iosevka" ]; })
   ];
