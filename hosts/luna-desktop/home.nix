@@ -22,7 +22,6 @@
   programs.home-manager.enable = true;
   programs.neovim.enable = true;
   programs.firefox.enable = true;
-  programs.alacritty.enable = true;
   programs.fish.enable = true;
 
   programs.git = {
@@ -38,6 +37,31 @@
 
     extraConfig = {
       init.defaultBranch = "main";
+    };
+  };
+
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      env = {
+        TERM = "xterm-256color";
+      };
+
+      window = {
+        opacity = 0.95;
+        padding = {
+          x = 4;
+          y = 4;
+        };
+      };
+
+      font = {
+        size = 16;
+        normal = {
+          family = "Iosevka Nerd Font";
+          style = "Regular";
+        };
+      };
     };
   };
 }
