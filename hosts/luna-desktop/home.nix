@@ -22,7 +22,18 @@
   programs.home-manager.enable = true;
   programs.neovim.enable = true;
   programs.firefox.enable = true;
-  programs.fish.enable = true;
+
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = "fish_vi_key_bindings";
+    shellAliases = {
+      q = "exit";
+      cls = "clear";
+      vim = "nvim";
+      collect-garbage = "sudo nix-collect-garbage --delete-old";
+      rebuild = "sudo nixos-rebuild switch --flake ~/GitHub/toodeluna/dotfiles";
+    };
+  };
 
   programs.git = {
     enable = true;
